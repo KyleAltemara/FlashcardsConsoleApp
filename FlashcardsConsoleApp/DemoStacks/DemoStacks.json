@@ -1,0 +1,452 @@
+﻿[
+  {
+    "Name": "C#",
+    "Cards": [
+      {
+        "Question": "What is a class in C#?",
+        "Answer": "A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods)."
+      },
+      {
+        "Question": "What is an interface in C#?",
+        "Answer": "An interface contains definitions for a group of related functionalities that a class or a struct can implement."
+      },
+      {
+        "Question": "What is a namespace in C#?",
+        "Answer": "A namespace is used to organize your code and is collection of classes, interfaces, structs, enums, and delegates."
+      },
+      {
+        "Question": "What is a constructor in C#?",
+        "Answer": "A constructor is a special type of method that is used to initialize objects."
+      },
+      {
+        "Question": "What is a destructor in C#?",
+        "Answer": "A destructor is a special member function of a class that is executed whenever an object of its class goes out of scope or whenever the delete expression is applied to a pointer to the object of that class."
+      },
+      {
+        "Question": "What is a property in C#?",
+        "Answer": "A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
+      },
+      {
+        "Question": "What is a method in C#?",
+        "Answer": "A method is a code block containing a series of statements. In C#, every executed instruction is done so in the context of a method."
+      },
+      {
+        "Question": "What is a field in C#?",
+        "Answer": "A field is a variable of any type that is declared directly in a class or struct."
+      },
+      {
+        "Question": "What is a static class in C#?",
+        "Answer": "A static class is a class that cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type."
+      },
+      {
+        "Question": "What is a static method in C#?",
+        "Answer": "A static method is a method that belongs to the type itself rather than to any object."
+      },
+      {
+        "Question": "How do you create a new object in C#?",
+        "Answer": "You create a new object in C# by using the new keyword followed by the name of the class."
+      },
+      {
+        "Question": "What is the difference between a class and a struct in C#?",
+        "Answer": "A class is a reference type and a struct is a value type."
+      },
+      {
+        "Question": "What is the difference between a method and a property in C#?",
+        "Answer": "A method is a code block containing a series of statements and a property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
+      },
+      {
+        "Question": "What is the difference between a field and a property in C#?",
+        "Answer": "A field is a variable of any type that is declared directly in a class or struct and a property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
+      },
+      {
+        "Question": "What is the difference between a class and an interface in C#?",
+        "Answer": "A class is a blueprint for creating objects and an interface contains definitions for a group of related functionalities that a class or a struct"
+      },
+      {
+        "Question": "Why are properties used in C#?",
+        "Answer": "Properties are used in C# to provide a flexible mechanism to read, write, or compute the value of a private field."
+      },
+      {
+        "Question": "Why are methods used in C#?",
+        "Answer": "Methods are used in C# to define the behavior of a class."
+      },
+      {
+        "Question": "Why are fields used in C#?",
+        "Answer": "Fields are used in C# to store data."
+      },
+      {
+        "Question": "Why are constructors used in C#?",
+        "Answer": "Constructors are used in C# to initialize objects."
+      },
+      {
+        "Question": "Why are destructors used in C#?",
+        "Answer": "Destructors are used in C# to clean up resources."
+      },
+      {
+        "Question": "Why are namespaces used in C#?",
+        "Answer": "Namespaces are used in C# to organize your code."
+      },
+      {
+        "Question": "Why are static classes used in C#?",
+        "Answer": "Static classes are used in C# to create utility classes."
+      },
+      {
+        "Question": "Why are static methods used in C#?",
+        "Answer": "Static methods are used in C# to create utility methods."
+      },
+      {
+        "Question": "What is the difference between a static class and a non-static class in C#?",
+        "Answer": "A static class cannot be instantiated and a non-static class can be instantiated."
+      },
+      {
+        "Question": "What is the difference between a static method and a non-static method in C#?",
+        "Answer": "A static method belongs to the type itself rather than to any object and a non-static method belongs to an object of the type."
+      },
+      {
+        "Question": "What is the difference between a static field and a non-static field in C#?",
+        "Answer": "A static field is shared among all instances of a class and a non-static field is unique to each instance of a class."
+      },
+      {
+        "Question": "What is the difference between a static property and a non-static property in C#?",
+        "Answer": "A static property is shared among all instances of a class and a non-static property is unique to each instance of a class."
+      },
+      {
+        "Question": "What is the difference between a static constructor and a non-static constructor in C#?",
+        "Answer": "A static constructor is called once per type and a non-static constructor is called once per instance."
+      }
+    ]
+  },
+  {
+    "Name": "Japanese",
+    "Cards": [
+      {
+        "Question": "What is the Japanese word for 'Hello'?",
+        "Answer": "こんにちは (Konnichiwa)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Thank you'?",
+        "Answer": "ありがとう (Arigatou)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Yes'?",
+        "Answer": "はい (Hai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'No'?",
+        "Answer": "いいえ (Iie)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Please'?",
+        "Answer": "お願いします (Onegaishimasu)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Excuse me'?",
+        "Answer": "すみません (Sumimasen)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm sorry'?",
+        "Answer": "ごめんなさい (Gomennasai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good morning'?",
+        "Answer": "おはようございます (Ohayou gozaimasu)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good night'?",
+        "Answer": "おやすみなさい (Oyasuminasai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good evening'?",
+        "Answer": "こんばんは (Konbanwa)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good afternoon'?",
+        "Answer": "こんにちは (Konnichiwa)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good day'?",
+        "Answer": "こんにちは (Konnichiwa)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Goodbye'?",
+        "Answer": "さようなら (Sayounara)"
+      },
+      {
+        "Question": "What is the Japanese word for 'Good luck'?",
+        "Answer": "がんばって (Ganbatte)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I love you'?",
+        "Answer": "愛してる (Aishiteru)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I miss you'?",
+        "Answer": "会いたい (Aitai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm hungry'?",
+        "Answer": "お腹が空いた (Onaka ga suita)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm thirsty'?",
+        "Answer": "のどが渇いた (Nodo ga kawaita)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm tired'?",
+        "Answer": "疲れた (Tsukareta)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm cold'?",
+        "Answer": "寒い (Samui)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm hot'?",
+        "Answer": "暑い (Atsui)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm happy'?",
+        "Answer": "嬉しい (Ureshii)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm sad'?",
+        "Answer": "悲しい (Kanashii)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm angry'?",
+        "Answer": "怒っている (Okotteiru)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm scared'?",
+        "Answer": "怖い (Kowai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm sick'?",
+        "Answer": "病気 (Byouki)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm bored'?",
+        "Answer": "退屈 (Taikutsu)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm lost'?",
+        "Answer": "迷子 (Maigo)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm confused'?",
+        "Answer": "混乱 (Konran)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm excited'?",
+        "Answer": "ワクワク (Wakuwaku)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm nervous'?",
+        "Answer": "緊張 (Kinchou)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm surprised'?",
+        "Answer": "驚いた (Odoroita)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm disappointed'?",
+        "Answer": "がっかり (Gakkari)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm embarrassed'?",
+        "Answer": "恥ずかしい (Hazukashii)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm proud'?",
+        "Answer": "誇り (Hokori)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm jealous'?",
+        "Answer": "嫉妬 (Shitto)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm lonely'?",
+        "Answer": "寂しい (Sabishii)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in love'?",
+        "Answer": "恋してる (Koishiteru)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in pain'?",
+        "Answer": "痛い (Itai)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in trouble'?",
+        "Answer": "困っている (Komatteiru)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in danger'?",
+        "Answer": "危険 (Kiken)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in a hurry'?",
+        "Answer": "急いでいる (Isoideiru)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in a bad mood'?",
+        "Answer": "機嫌が悪い (Kigen ga warui)"
+      },
+      {
+        "Question": "What is the Japanese word for 'I'm in a good mood'?",
+        "Answer": "機嫌がいい (Kigen ga ii)"
+      },
+      {
+        "Question": "What does 'おはよう' mean?",
+        "Answer": "Good morning"
+      },
+      {
+        "Question": "What does 'こんにちは' mean?",
+        "Answer": "Hello"
+      },
+      {
+        "Question": "What does 'こんばんは' mean?",
+        "Answer": "Good evening"
+      },
+      {
+        "Question": "What does 'おやすみなさい' mean?",
+        "Answer": "Good night"
+      },
+      {
+        "Question": "What does 'さようなら' mean?",
+        "Answer": "Goodbye"
+      },
+      {
+        "Question": "What does 'ありがとう' mean?",
+        "Answer": "Thank you"
+      },
+      {
+        "Question": "What does 'ごめんなさい' mean?",
+        "Answer": "I'm sorry"
+      },
+      {
+        "Question": "What does 'お願いします' mean?",
+        "Answer": "Please"
+      },
+      {
+        "Question": "What does 'はい' mean?",
+        "Answer": "Yes"
+      },
+      {
+        "Question": "What does 'いいえ' mean?",
+        "Answer": "No"
+      },
+      {
+        "Question": "What does 'すみません' mean?",
+        "Answer": "Excuse me"
+      },
+      {
+        "Question": "What does 'がんばって' mean?",
+        "Answer": "Good luck"
+      },
+      {
+        "Question": "What does '愛してる' mean?",
+        "Answer": "I love you"
+      },
+      {
+        "Question": "What does '会いたい' mean?",
+        "Answer": "I miss you"
+      },
+      {
+        "Question": "What does 'お腹が空いた' mean?",
+        "Answer": "I'm hungry"
+      },
+      {
+        "Question": "What does 'のどが渇いた' mean?",
+        "Answer": "I'm thirsty"
+      },
+      {
+        "Question": "What does '疲れた' mean?",
+        "Answer": "I'm tired"
+      },
+      {
+        "Question": "What does '寒い' mean?",
+        "Answer": "I'm cold"
+      },
+      {
+        "Question": "What does '暑い' mean?",
+        "Answer": "I'm hot"
+      },
+      {
+        "Question": "What does '嬉しい' mean?",
+        "Answer": "I'm happy"
+      },
+      {
+        "Question": "What does '悲しい' mean?",
+        "Answer": "I'm sad"
+      },
+      {
+        "Question": "What does '怒っている' mean?",
+        "Answer": "I'm angry"
+      },
+      {
+        "Question": "What does '怖い' mean?",
+        "Answer": "I'm scared"
+      },
+      {
+        "Question": "What does '病気' mean?",
+        "Answer": "I'm sick"
+      },
+      {
+        "Question": "What does '退屈' mean?",
+        "Answer": "I'm bored"
+      },
+      {
+        "Question": "What does '迷子' mean?",
+        "Answer": "I'm lost"
+      },
+      {
+        "Question": "What does '混乱' mean?",
+        "Answer": "I'm confused"
+      },
+      {
+        "Question": "What does 'ワクワク' mean?",
+        "Answer": "I'm excited"
+      },
+      {
+        "Question": "What does '緊張' mean?",
+        "Answer": "I'm nervous"
+      },
+      {
+        "Question": "What does '驚いた' mean?",
+        "Answer": "I'm surprised"
+      },
+      {
+        "Question": "What does 'がっかり' mean?",
+        "Answer": "I'm disappointed"
+      },
+      {
+        "Question": "What does '恥ずかしい' mean?",
+        "Answer": "I'm embarrassed"
+      },
+      {
+        "Question": "What does '誇り' mean?",
+        "Answer": "I'm proud"
+      },
+      {
+        "Question": "What does '嫉妬' mean?",
+        "Answer": "I'm jealous"
+      },
+      {
+        "Question": "What does '寂しい' mean?",
+        "Answer": "I'm lonely"
+      },
+      {
+        "Question": "What does '恋してる' mean?",
+        "Answer": "I'm in love"
+      },
+      {
+        "Question": "What does '痛い' mean?",
+        "Answer": "I'm in pain"
+      },
+      {
+        "Question": "What does '困っている' mean?",
+        "Answer": "I'm in trouble"
+      }
+    ]
+  }
+]
