@@ -14,7 +14,7 @@ public class StudySessionRepository : IStudySessionRepository
 
     public async Task<IEnumerable<StudySession>> GetAllAsync() => await _context.StudySessions.Include(s => s.Stack).ToListAsync();
 
-    public async Task<StudySession> GetByIdAsync(int id) => await _context.StudySessions.Include(s => s.Stack).FirstOrDefaultAsync(s => s.Id == id);
+    public async Task<StudySession?> GetByIdAsync(int id) => await _context.StudySessions.Include(s => s.Stack).FirstOrDefaultAsync(s => s.Id == id);
 
     public async Task AddAsync(StudySession studySession)
     {

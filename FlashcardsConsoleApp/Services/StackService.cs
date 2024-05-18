@@ -22,14 +22,13 @@ public class StackService : IStackService
 
     public async Task<bool> AddStackAsync(string name)
     {
+        // Handle the case when the stack name is not unique
         var existingStack = await _stackRepository.GetByNameAsync(name);
         if (existingStack != null)
         {
-            // Handle the case when the stack name is not unique
             return false;
         }
 
-        var id = await _stackRepository.GetMaxIdAsync() + 1;
         var newStack = new Stack(name);
         await _stackRepository.AddAsync(newStack);
         return true;
