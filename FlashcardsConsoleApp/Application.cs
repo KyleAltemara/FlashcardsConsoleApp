@@ -44,10 +44,7 @@ public class Application
                     break;
 
                 case "View All Stacks":
-                    AnsiConsole.MarkupLine("[green]Before calling GetAllStacksAsync[/]");
                     var stacks = await _stackService.GetAllStacksAsync();
-                    AnsiConsole.MarkupLine("[green]After calling GetAllStacksAsync[/]");
-
                     var table = new Table();
                     table.AddColumn("ID");
                     table.AddColumn("Name");
@@ -83,20 +80,44 @@ public class Application
 
                         AnsiConsole.Write(flashCardTable);
                     }
+                    else
+                    {
+                        AnsiConsole.Markup("[red]Stack not found.[/]");
+                    }
+
                     break;
 
                 case "Update Stack":
                     var updateStackId = AnsiConsole.Ask<int>("Enter stack ID to update:");
                     var newStackName = AnsiConsole.Ask<string>("Enter new stack name:");
+                    if (await _stackService.GetStackByNameAsync(newStackName) != null)
+                    {
+                        AnsiConsole.Markup("[red]Stack name is already taken. Please choose a different name.[/]");
+                        break;
+                    }
+
+                    if (await _stackService.GetStackByIdAsync(updateStackId) == null)
+                    {
+                        AnsiConsole.Markup("[red]Stack not found.[/]");
+                        break;
+                    }
+
                     await _stackService.RenameStackAsync(updateStackId, newStackName);
                     break;
 
                 case "Delete Stack":
                     var deleteStackId = AnsiConsole.Ask<int>("Enter stack ID to delete:");
+                    if (await _stackService.GetStackByIdAsync(deleteStackId) == null)
+                    {
+                        AnsiConsole.Markup("[red]Stack not found.[/]");
+                        break;
+                    }
+
                     await _stackService.DeleteStackAsync(deleteStackId);
                     break;
 
                 case "Exit":
+                    AnsiConsole.Markup("[red]Exiting Program[/]");
                     return;
 
                 default:
