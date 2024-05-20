@@ -12,7 +12,7 @@ public class FlashCardRepository : IFlashCardRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<FlashCard>> GetAllAsync() => await _context.FlashCards.ToListAsync();
+    public async Task<IList<FlashCard>> GetAllAsync() => await _context.FlashCards.ToListAsync();
 
     public async Task<FlashCard?> GetByIdAsync(int id) => await _context.FlashCards.FindAsync(id);
 
@@ -36,5 +36,11 @@ public class FlashCardRepository : IFlashCardRepository
             _context.FlashCards.Remove(flashCard);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public async Task DeleteAsync(List<FlashCard> flashCards)
+    {
+        _context.FlashCards.RemoveRange(flashCards);
+        await _context.SaveChangesAsync();
     }
 }

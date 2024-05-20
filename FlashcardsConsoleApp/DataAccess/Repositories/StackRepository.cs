@@ -6,13 +6,17 @@ namespace FlashcardsConsoleApp.DataAccess.Repositories;
 public class StackRepository : IStackRepository
 {
     private readonly FlashCardDbContext _context;
+    private readonly FlashCardRepository _flashCardRepository;
+    private readonly StudySessionRepository _studySessionsRepository;
 
     public StackRepository(FlashCardDbContext context)
     {
         _context = context;
+        _flashCardRepository = new FlashCardRepository(_context);
+        _studySessionsRepository = new StudySessionRepository(_context);
     }
 
-    public async Task<IEnumerable<Stack>> GetAllAsync() => await _context.Stacks.Include(s => s.FlashCards).ToListAsync();
+    public async Task<IList<Stack>> GetAllAsync() => await _context.Stacks.Include(s => s.FlashCards).ToListAsync();
 
     public async Task<Stack?> GetByIdAsync(int id) => await _context.Stacks.Include(s => s.FlashCards).FirstOrDefaultAsync(s => s.Id == id);
 
@@ -35,8 +39,8 @@ public class StackRepository : IStackRepository
         var stack = await _context.Stacks.FindAsync(id);
         if (stack != null)
         {
-            _context.FlashCards.RemoveRange(stack.FlashCards);
-            _context.StudySessions.RemoveRange(stack.StudySessions);
+            await _flashCardRepository.DeleteAsync(stack.FlashCards);
+            await _studySessionsRepository.DeleteAsync(stack.StudySessions);
             _context.Stacks.Remove(stack);
             await _context.SaveChangesAsync();
         }

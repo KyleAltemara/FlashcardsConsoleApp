@@ -12,7 +12,7 @@ public class StudySessionRepository : IStudySessionRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<StudySession>> GetAllAsync() => await _context.StudySessions.Include(s => s.Stack).ToListAsync();
+    public async Task<IList<StudySession>> GetAllAsync() => await _context.StudySessions.Include(s => s.Stack).ToListAsync();
 
     public async Task<StudySession?> GetByIdAsync(int id) => await _context.StudySessions.Include(s => s.Stack).FirstOrDefaultAsync(s => s.Id == id);
 
@@ -36,5 +36,11 @@ public class StudySessionRepository : IStudySessionRepository
             _context.StudySessions.Remove(studySession);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public async Task DeleteAsync(List<StudySession> studySessions)
+    {
+        _context.StudySessions.RemoveRange(studySessions);
+        await _context.SaveChangesAsync();
     }
 }
