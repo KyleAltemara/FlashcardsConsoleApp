@@ -6,14 +6,14 @@ namespace FlashcardsConsoleApp.DataAccess.Repositories;
 public class StackRepository : IStackRepository
 {
     private readonly FlashCardDbContext _context;
-    private readonly FlashCardRepository _flashCardRepository;
-    private readonly StudySessionRepository _studySessionsRepository;
+    private readonly IFlashCardRepository _flashCardRepository;
+    private readonly IStudySessionRepository _studySessionsRepository;
 
-    public StackRepository(FlashCardDbContext context)
+    public StackRepository(FlashCardDbContext context, IFlashCardRepository flashCardRepository, IStudySessionRepository studySessionsRepository)
     {
         _context = context;
-        _flashCardRepository = new FlashCardRepository(_context);
-        _studySessionsRepository = new StudySessionRepository(_context);
+        _flashCardRepository = flashCardRepository;
+        _studySessionsRepository = studySessionsRepository;
     }
 
     public async Task<IList<Stack>> GetAllAsync() => await _context.Stacks.Include(s => s.FlashCards).ToListAsync();
@@ -42,9 +42,22 @@ public class StackRepository : IStackRepository
             await _flashCardRepository.DeleteAsync(stack.FlashCards);
             await _studySessionsRepository.DeleteAsync(stack.StudySessions);
             _context.Stacks.Remove(stack);
+
+            // Renumber DisplayId in the remaining stacks
+            var remainingStacks = await _context.Stacks.ToListAsync();
+            foreach (var remainingStack in remainingStacks)
+            {
+                if (remainingStack.DisplayId > stack.DisplayId)
+                {
+                    remainingStack.DisplayId--;
+                }
+            }
+
             await _context.SaveChangesAsync();
         }
     }
 
-    public async Task<int> GetMaxIdAsync() => await _context.Stacks.AnyAsync() ? await _context.Stacks.MaxAsync(s => s.Id) : -1;
+    public async Task<int> GetMaxIdAsync() => await _context.Stacks.AnyAsync() ? await _context.Stacks.MaxAsync(s => s.Id) : 0;
+
+    public async Task<int> GetStackIdFromDisplayId(object displayId) => await _context.Stacks.Where(s => s.DisplayId == (int)displayId).Select(s => s.Id).SingleOrDefaultAsync();
 }

@@ -10,5 +10,7 @@ public interface IFlashCardRepository
     Task UpdateAsync(FlashCard flashCard);
     Task DeleteAsync(int id);
     Task DeleteAsync(List<FlashCard> flashCards);
-
+    Task<IEnumerable<FlashCard>> GetByStackIdAsync(int stackId);
+    Task<int> GetMaxIdAsync();
+    Task<int> GetFlashCardIdFromDisplayId(int displayId);
 }

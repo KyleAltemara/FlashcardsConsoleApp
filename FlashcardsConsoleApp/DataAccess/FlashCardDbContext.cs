@@ -1,7 +1,7 @@
 ﻿using FlashcardsConsoleApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlashcardsConsoleApp;
+namespace FlashcardsConsoleApp.DataAccess;
 
 public class FlashCardDbContext : DbContext
 {

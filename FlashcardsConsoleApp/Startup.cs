@@ -1,5 +1,6 @@
-﻿using FlashcardsConsoleApp.DataAccess.Repositories;
-using FlashcardsConsoleApp.Services;
+﻿using FlashcardsConsoleApp.DataAccess;
+using FlashcardsConsoleApp.DataAccess.Repositories;
+using FlashcardsConsoleApp.DataAccess.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
@@ -17,6 +18,7 @@ public class Startup
             options.UseSqlServer(connectionString);
         })
         .AddScoped<IFlashCardRepository, FlashCardRepository>()
+        .AddScoped<IStudySessionRepository, StudySessionRepository>()
         .AddScoped<IStackRepository, StackRepository>()
         .AddScoped<IStackService, StackService>()
         .AddSingleton<Application>();

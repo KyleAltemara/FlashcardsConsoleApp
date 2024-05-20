@@ -11,4 +11,5 @@ public interface IStackRepository
     Task UpdateAsync(Stack stack);
     Task DeleteAsync(int id);
     Task<int> GetMaxIdAsync();
+    Task<int> GetStackIdFromDisplayId(object displayId);
 }

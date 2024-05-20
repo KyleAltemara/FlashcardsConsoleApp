@@ -1,13 +1,12 @@
-﻿using FlashcardsConsoleApp.DemoStacks;
-using FlashcardsConsoleApp.Services;
+﻿using FlashcardsConsoleApp.DataAccess.Services;
 using Spectre.Console;
 using System.Text.Json;
 
-namespace FlashcardsConsoleApp;
+namespace FlashcardsConsoleApp.DemoStacks;
 
 public static class DemoImporter
 {
-    public static async void ImportDemoStacks(IStackService stackService)
+    public static async Task ImportDemoStacks(IStackService stackService)
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\DemoStacks\DemoStacks.json");
         if (!File.Exists(path))
@@ -40,9 +39,10 @@ public static class DemoImporter
                 continue;
             }
 
+            var stackId = await stackService.GetStackIdFromDisplayId(stack.DisplayId);
             foreach (var card in jsonStack.Cards)
             {
-                await stackService.AddFlashCardToStackAsync(stack.Id, card.Question, card.Answer);
+                await stackService.AddFlashCardToStackAsync(stackId, card.Question, card.Answer);
             }
         }
     }

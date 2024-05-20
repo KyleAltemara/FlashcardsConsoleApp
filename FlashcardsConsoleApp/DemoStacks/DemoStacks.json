@@ -1,123 +1,6 @@
 ﻿[
   {
-    "Name": "C#",
-    "Cards": [
-      {
-        "Question": "What is a class in C#?",
-        "Answer": "A class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods)."
-      },
-      {
-        "Question": "What is an interface in C#?",
-        "Answer": "An interface contains definitions for a group of related functionalities that a class or a struct can implement."
-      },
-      {
-        "Question": "What is a namespace in C#?",
-        "Answer": "A namespace is used to organize your code and is collection of classes, interfaces, structs, enums, and delegates."
-      },
-      {
-        "Question": "What is a constructor in C#?",
-        "Answer": "A constructor is a special type of method that is used to initialize objects."
-      },
-      {
-        "Question": "What is a destructor in C#?",
-        "Answer": "A destructor is a special member function of a class that is executed whenever an object of its class goes out of scope or whenever the delete expression is applied to a pointer to the object of that class."
-      },
-      {
-        "Question": "What is a property in C#?",
-        "Answer": "A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
-      },
-      {
-        "Question": "What is a method in C#?",
-        "Answer": "A method is a code block containing a series of statements. In C#, every executed instruction is done so in the context of a method."
-      },
-      {
-        "Question": "What is a field in C#?",
-        "Answer": "A field is a variable of any type that is declared directly in a class or struct."
-      },
-      {
-        "Question": "What is a static class in C#?",
-        "Answer": "A static class is a class that cannot be instantiated. In other words, you cannot use the new keyword to create a variable of the class type."
-      },
-      {
-        "Question": "What is a static method in C#?",
-        "Answer": "A static method is a method that belongs to the type itself rather than to any object."
-      },
-      {
-        "Question": "How do you create a new object in C#?",
-        "Answer": "You create a new object in C# by using the new keyword followed by the name of the class."
-      },
-      {
-        "Question": "What is the difference between a class and a struct in C#?",
-        "Answer": "A class is a reference type and a struct is a value type."
-      },
-      {
-        "Question": "What is the difference between a method and a property in C#?",
-        "Answer": "A method is a code block containing a series of statements and a property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
-      },
-      {
-        "Question": "What is the difference between a field and a property in C#?",
-        "Answer": "A field is a variable of any type that is declared directly in a class or struct and a property is a member that provides a flexible mechanism to read, write, or compute the value of a private field."
-      },
-      {
-        "Question": "What is the difference between a class and an interface in C#?",
-        "Answer": "A class is a blueprint for creating objects and an interface contains definitions for a group of related functionalities that a class or a struct"
-      },
-      {
-        "Question": "Why are properties used in C#?",
-        "Answer": "Properties are used in C# to provide a flexible mechanism to read, write, or compute the value of a private field."
-      },
-      {
-        "Question": "Why are methods used in C#?",
-        "Answer": "Methods are used in C# to define the behavior of a class."
-      },
-      {
-        "Question": "Why are fields used in C#?",
-        "Answer": "Fields are used in C# to store data."
-      },
-      {
-        "Question": "Why are constructors used in C#?",
-        "Answer": "Constructors are used in C# to initialize objects."
-      },
-      {
-        "Question": "Why are destructors used in C#?",
-        "Answer": "Destructors are used in C# to clean up resources."
-      },
-      {
-        "Question": "Why are namespaces used in C#?",
-        "Answer": "Namespaces are used in C# to organize your code."
-      },
-      {
-        "Question": "Why are static classes used in C#?",
-        "Answer": "Static classes are used in C# to create utility classes."
-      },
-      {
-        "Question": "Why are static methods used in C#?",
-        "Answer": "Static methods are used in C# to create utility methods."
-      },
-      {
-        "Question": "What is the difference between a static class and a non-static class in C#?",
-        "Answer": "A static class cannot be instantiated and a non-static class can be instantiated."
-      },
-      {
-        "Question": "What is the difference between a static method and a non-static method in C#?",
-        "Answer": "A static method belongs to the type itself rather than to any object and a non-static method belongs to an object of the type."
-      },
-      {
-        "Question": "What is the difference between a static field and a non-static field in C#?",
-        "Answer": "A static field is shared among all instances of a class and a non-static field is unique to each instance of a class."
-      },
-      {
-        "Question": "What is the difference between a static property and a non-static property in C#?",
-        "Answer": "A static property is shared among all instances of a class and a non-static property is unique to each instance of a class."
-      },
-      {
-        "Question": "What is the difference between a static constructor and a non-static constructor in C#?",
-        "Answer": "A static constructor is called once per type and a non-static constructor is called once per instance."
-      }
-    ]
-  },
-  {
-    "Name": "Japanese",
+    "Name": "Japanese Vocabulary",
     "Cards": [
       {
         "Question": "What is the Japanese word for 'Hello'?",
@@ -446,6 +329,384 @@
       {
         "Question": "What does '困っている' mean?",
         "Answer": "I'm in trouble"
+      }
+    ]
+  },
+  {
+    "Name": "Japanese Hiragana",
+    "Cards": [
+      {
+        "Question": "What is the Hiragana character for 'a'?",
+        "Answer": "あ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'i'?",
+        "Answer": "い"
+      },
+      {
+        "Question": "What is the Hiragana character for 'u'?",
+        "Answer": "う"
+      },
+      {
+        "Question": "What is the Hiragana character for 'e'?",
+        "Answer": "え"
+      },
+      {
+        "Question": "What is the Hiragana character for 'o'?",
+        "Answer": "お"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ka'?",
+        "Answer": "か"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ki'?",
+        "Answer": "き"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ku'?",
+        "Answer": "く"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ke'?",
+        "Answer": "け"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ko'?",
+        "Answer": "こ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'sa'?",
+        "Answer": "さ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'shi'?",
+        "Answer": "し"
+      },
+      {
+        "Question": "What is the Hiragana character for 'su'?",
+        "Answer": "す"
+      },
+      {
+        "Question": "What is the Hiragana character for 'se'?",
+        "Answer": "せ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'so'?",
+        "Answer": "そ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ta'?",
+        "Answer": "た"
+      },
+      {
+        "Question": "What is the Hiragana character for 'chi'?",
+        "Answer": "ち"
+      },
+      {
+        "Question": "What is the Hiragana character for 'tsu'?",
+        "Answer": "つ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'te'?",
+        "Answer": "て"
+      },
+      {
+        "Question": "What is the Hiragana character for 'to'?",
+        "Answer": "と"
+      },
+      {
+        "Question": "What is the Hiragana character for 'na'?",
+        "Answer": "な"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ni'?",
+        "Answer": "に"
+      },
+      {
+        "Question": "What is the Hiragana character for 'nu'?",
+        "Answer": "ぬ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ne'?",
+        "Answer": "ね"
+      },
+      {
+        "Question": "What is the Hiragana character for 'no'?",
+        "Answer": "の"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ha'?",
+        "Answer": "は"
+      },
+      {
+        "Question": "What is the Hiragana character for 'hi'?",
+        "Answer": "ひ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'fu'?",
+        "Answer": "ふ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'he'?",
+        "Answer": "へ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ho'?",
+        "Answer": "ほ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ma'?",
+        "Answer": "ま"
+      },
+      {
+        "Question": "What is the Hiragana character for 'mi'?",
+        "Answer": "み"
+      },
+      {
+        "Question": "What is the Hiragana character for 'mu'?",
+        "Answer": "む"
+      },
+      {
+        "Question": "What is the Hiragana character for 'me'?",
+        "Answer": "め"
+      },
+      {
+        "Question": "What is the Hiragana character for 'mo'?",
+        "Answer": "も"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ya'?",
+        "Answer": "や"
+      },
+      {
+        "Question": "What is the Hiragana character for 'yu'?",
+        "Answer": "ゆ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'yo'?",
+        "Answer": "よ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ra'?",
+        "Answer": "ら"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ri'?",
+        "Answer": "り"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ru'?",
+        "Answer": "る"
+      },
+      {
+        "Question": "What is the Hiragana character for 're'?",
+        "Answer": "れ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'ro'?",
+        "Answer": "ろ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'wa'?",
+        "Answer": "わ"
+      },
+      {
+        "Question": "What is the Hiragana character for 'wo'?",
+        "Answer": "を"
+      },
+      {
+        "Question": "What is the Hiragana character for 'n'?",
+        "Answer": "ん"
+      }
+    ]
+  },
+  {
+    "Name": "Japanese Katakana",
+    "Cards": [
+      {
+        "Question": "What is the Katakana character for 'a'?",
+        "Answer": "ア"
+      },
+      {
+        "Question": "What is the Katakana character for 'i'?",
+        "Answer": "イ"
+      },
+      {
+        "Question": "What is the Katakana character for 'u'?",
+        "Answer": "ウ"
+      },
+      {
+        "Question": "What is the Katakana character for 'e'?",
+        "Answer": "エ"
+      },
+      {
+        "Question": "What is the Katakana character for 'o'?",
+        "Answer": "オ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ka'?",
+        "Answer": "カ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ki'?",
+        "Answer": "キ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ku'?",
+        "Answer": "ク"
+      },
+      {
+        "Question": "What is the Katakana character for 'ke'?",
+        "Answer": "ケ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ko'?",
+        "Answer": "コ"
+      },
+      {
+        "Question": "What is the Katakana character for 'sa'?",
+        "Answer": "サ"
+      },
+      {
+        "Question": "What is the Katakana character for 'shi'?",
+        "Answer": "シ"
+      },
+      {
+        "Question": "What is the Katakana character for 'su'?",
+        "Answer": "ス"
+      },
+      {
+        "Question": "What is the Katakana character for 'se'?",
+        "Answer": "セ"
+      },
+      {
+        "Question": "What is the Katakana character for 'so'?",
+        "Answer": "ソ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ta'?",
+        "Answer": "タ"
+      },
+      {
+        "Question": "What is the Katakana character for 'chi'?",
+        "Answer": "チ"
+      },
+      {
+        "Question": "What is the Katakana character for 'tsu'?",
+        "Answer": "ツ"
+      },
+      {
+        "Question": "What is the Katakana character for 'te'?",
+        "Answer": "テ"
+      },
+      {
+        "Question": "What is the Katakana character for 'to'?",
+        "Answer": "ト"
+      },
+      {
+        "Question": "What is the Katakana character for 'na'?",
+        "Answer": "ナ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ni'?",
+        "Answer": "ニ"
+      },
+      {
+        "Question": "What is the Katakana character for 'nu'?",
+        "Answer": "ヌ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ne'?",
+        "Answer": "ネ"
+      },
+      {
+        "Question": "What is the Katakana character for 'no'?",
+        "Answer": "ノ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ha'?",
+        "Answer": "ハ"
+      },
+      {
+        "Question": "What is the Katakana character for 'hi'?",
+        "Answer": "ヒ"
+      },
+      {
+        "Question": "What is the Katakana character for 'fu'?",
+        "Answer": "フ"
+      },
+      {
+        "Question": "What is the Katakana character for 'he'?",
+        "Answer": "ヘ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ho'?",
+        "Answer": "ホ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ma'?",
+        "Answer": "マ"
+      },
+      {
+        "Question": "What is the Katakana character for 'mi'?",
+        "Answer": "ミ"
+      },
+      {
+        "Question": "What is the Katakana character for 'mu'?",
+        "Answer": "ム"
+      },
+      {
+        "Question": "What is the Katakana character for 'me'?",
+        "Answer": "メ"
+      },
+      {
+        "Question": "What is the Katakana character for 'mo'?",
+        "Answer": "モ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ya'?",
+        "Answer": "ヤ"
+      },
+      {
+        "Question": "What is the Katakana character for 'yu'?",
+        "Answer": "ユ"
+      },
+      {
+        "Question": "What is the Katakana character for 'yo'?",
+        "Answer": "ヨ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ra'?",
+        "Answer": "ラ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ri'?",
+        "Answer": "リ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ru'?",
+        "Answer": "ル"
+      },
+      {
+        "Question": "What is the Katakana character for 're'?",
+        "Answer": "レ"
+      },
+      {
+        "Question": "What is the Katakana character for 'ro'?",
+        "Answer": "ロ"
+      },
+      {
+        "Question": "What is the Katakana character for 'wa'?",
+        "Answer": "ワ"
+      },
+      {
+        "Question": "What is the Katakana character for 'wo'?",
+        "Answer": "ヲ"
+      },
+      {
+        "Question": "What is the Katakana character for 'n'?",
+        "Answer": "ン"
       }
     ]
   }
