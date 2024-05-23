@@ -7,11 +7,13 @@ public class StackService : IStackService
 {
     private readonly IStackRepository _stackRepository;
     private readonly IFlashCardRepository _flashCardRepository;
+    private readonly IStudySessionRepository _studySessionRepository;
 
-    public StackService(IStackRepository stackRepository, IFlashCardRepository flashCardRepository)
+    public StackService(IStackRepository stackRepository, IFlashCardRepository flashCardRepository, IStudySessionRepository studySessionRepository)
     {
         _stackRepository = stackRepository;
         _flashCardRepository = flashCardRepository;
+        _studySessionRepository = studySessionRepository;
     }
 
     public async Task<IEnumerable<StackDTO>> GetAllStacksAsync() => (await _stackRepository.GetAllAsync()).Select(s => s.ToDTO());
@@ -86,4 +88,22 @@ public class StackService : IStackService
     }
 
     public async Task DeleteFlashCardAsync(int flashcardId) => await _flashCardRepository.DeleteAsync(flashcardId);
+
+    public async Task AddStudySession(DateTime now, int correctCount, int incorrectCount, string name, int stackId)
+    {
+        var newStudySession = new StudySession
+        {
+            Date = now,
+            Correct = correctCount,
+            Incorrect = incorrectCount,
+            StackName = name,
+            StackId = stackId
+        };
+
+        await _studySessionRepository.AddAsync(newStudySession);
+    }
+
+    public async Task<IEnumerable<StudySessionDTO>> GetStudySessionsByStackId(int stackId) => (await _studySessionRepository.GetByStackIdAsync(stackId)).Select(ss => ss.ToDTO());
+
+    public async Task<IEnumerable<StudySessionDTO>> GetAllStudySessionData() => (await _studySessionRepository.GetAllAsync()).Select(ss => ss.ToDTO());
 }

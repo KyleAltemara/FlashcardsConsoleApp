@@ -32,10 +32,12 @@ public class Application
 
             var menuOptions = new Dictionary<string, Func<Task>>()
             {
-                { "View Stacks or Flashcards", () => ViewStacksOrFlashcards(stacks) },
-                { "Add Stack or Flashcard", () => AddStackOrFlashcard(stacks) },
-                { "Update Stack or Flashcard", () => UpdateStackOrFlashcard(stacks) },
-                { "Delete Stack or Flashcard", () => DeleteStackOrFlashcard(stacks) },
+                { "Study a stack", () => SelectStackToStudy(stacks) },
+                { "View stacks or flashcards", () => ViewStacksOrFlashcards(stacks) },
+                { "Add stack or flashcard", () => AddStackOrFlashcard(stacks) },
+                { "Update stack or flashcard", () => UpdateStackOrFlashcard(stacks) },
+                { "Delete stack or flashcard", () => DeleteStackOrFlashcard(stacks) },
+                { "View study session data", () => ViewStudySessionData(stacks) },
                 { "Exit", () =>
                     {
                         AnsiConsole.Markup("[red]Exiting Program[/]");
@@ -52,6 +54,7 @@ public class Application
 
             if (menuOptions.TryGetValue(choice, out var selectedAction))
             {
+                AnsiConsole.Clear();
                 await selectedAction.Invoke();
             }
             else
@@ -59,6 +62,120 @@ public class Application
                 AnsiConsole.Markup("[red]Invalid option.[/]");
             }
         }
+    }
+
+    private async Task SelectStackToStudy(IEnumerable<StackDTO> stacks)
+    {
+        var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
+        var options = optionsDictionary.Keys.ToList();
+        options.Add("Return");
+        var choice = AnsiConsole.Prompt(new SelectionPrompt<string>()
+            .Title("Select a stack to study: ")
+            .PageSize(10)
+            .AddChoices(options));
+
+        if (choice == "Return")
+        {
+            return;
+        }
+
+        var selectedStack = optionsDictionary[choice];
+        await StudyStack(selectedStack);
+    }
+
+    private async Task StudyStack(StackDTO selectedStack)
+    {
+
+        var stackId = _stackService.GetStackIdFromDisplayId(selectedStack.DisplayId).Result;
+        var flashcards = _stackService.GetFlashCardsByStackId(stackId).Result.ToList();
+        if (flashcards.Count == 0)
+        {
+            AnsiConsole.Markup("[red]No flashcards found in stack.[/]");
+            return;
+        }
+
+        AnsiConsole.Markup($"[bold]Studing Stack {selectedStack.Name}[/]");
+        AnsiConsole.Markup($"[bold]{flashcards.Count} flashcards in stack[/]");
+        var numFlashcardsToStudyOptions = new Dictionary<string, int>
+        {
+            { $"All ({flashcards.Count})", flashcards.Count }
+        };
+
+        if (flashcards.Count > 50)
+        {
+            numFlashcardsToStudyOptions.Add("50", 50);
+        }
+
+        if (flashcards.Count > 25)
+        {
+            numFlashcardsToStudyOptions.Add("25", 25);
+        }
+
+        if (flashcards.Count > 10)
+        {
+            numFlashcardsToStudyOptions.Add("10", 10);
+        }
+
+        var numFlashcardsToStudyChoice = AnsiConsole.Prompt(new SelectionPrompt<string>()
+            .Title("Choose the number of flashcards to study:")
+            .AddChoices(numFlashcardsToStudyOptions.Keys));
+        var numFlashcardsToStudy = numFlashcardsToStudyOptions[numFlashcardsToStudyChoice];
+
+        var random = new Random();
+        var correctCount = 0;
+        var incorrectCount = 0;
+        var flashcardsToStudy = new List<FlashCardDTO>(flashcards);
+
+        for (int i = 0; i < numFlashcardsToStudy; i++)
+        {
+            var flashcardIndex = random.Next(flashcardsToStudy.Count);
+            var flashcard = flashcardsToStudy[flashcardIndex];
+            flashcardsToStudy.RemoveAt(flashcardIndex);
+
+            AnsiConsole.MarkupLine($"[bold]Correct: {correctCount} Incorrect: {incorrectCount} Remaining: {numFlashcardsToStudy - i}[/]");
+            AnsiConsole.WriteLine();
+            AnsiConsole.MarkupLine($"[bold]{flashcard.Question}[/]");
+            AnsiConsole.WriteLine();
+            AnsiConsole.MarkupLine("[bold]Press Enter to reveal the answer.[/]");
+            AnsiConsole.MarkupLine("[bold]Press Esc to exit the study session.[/]");
+            var key = Console.ReadKey(true).Key;
+            while (key != ConsoleKey.Enter)
+            {
+                if (key == ConsoleKey.Escape)
+                {
+                    return;
+                }
+
+                key = Console.ReadKey(true).Key;
+            }
+
+            AnsiConsole.Clear();
+            AnsiConsole.MarkupLine($"[bold]Correct: {correctCount} Incorrect: {incorrectCount} Remaining: {numFlashcardsToStudy - i}[/]");
+            AnsiConsole.WriteLine();
+            AnsiConsole.MarkupLine($"[bold]{flashcard.Question}[/]");
+            AnsiConsole.WriteLine();
+            AnsiConsole.MarkupLine($"[bold]{flashcard.Answer}[/]");
+            AnsiConsole.WriteLine();
+            var choice = AnsiConsole.Prompt(new SelectionPrompt<string>().Title("Did you get the answer correct?").AddChoices("Yes", "No"));
+            switch (choice)
+            {
+                case "Yes":
+                    correctCount++;
+                    break;
+                case "No":
+                    incorrectCount++;
+                    break;
+                default:
+                    throw new InvalidOperationException("Invalid choice.");
+            }
+
+            AnsiConsole.Clear();
+        }
+
+        await _stackService.AddStudySession(DateTime.Now, correctCount, incorrectCount, selectedStack.Name, stackId);
+        AnsiConsole.MarkupLine($"[bold]Study Session Complete. Correct: {correctCount} Incorrect: {incorrectCount} Total: {numFlashcardsToStudy}[/]");
+        AnsiConsole.MarkupLine("[bold]Press any key to return to the main menu.[/]");
+        Console.ReadKey();
     }
 
     private async Task ViewStacksOrFlashcards(IEnumerable<StackDTO> stacks)
@@ -290,7 +407,7 @@ public class Application
 
         var selectedStack = optionsDictionary[choice];
         var stackId = await _stackService.GetStackIdFromDisplayId(selectedStack.DisplayId);
-        options = new List<string> { "Delete stack", "Delete flashcards", "Return" };
+        options = ["Delete stack", "Delete flashcards", "Return"];
         choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
                 .Title("Choose an option:")
@@ -346,5 +463,54 @@ public class Application
                 await _stackService.DeleteFlashCardAsync(flashcardId);
             }
         }
+    }
+
+
+    private async Task ViewStudySessionData(IEnumerable<StackDTO> stacks)
+    {
+        var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
+        var options = optionsDictionary.Keys.ToList();
+        options.Add("Show data for all stacks");
+        options.Add("Return");
+        var choice = AnsiConsole.Prompt(new SelectionPrompt<string>()
+            .Title("Select a stack to view study session data:")
+            .PageSize(10)
+            .AddChoices(options));
+
+        if (choice == "Return")
+        {
+            return;
+        }
+
+        IEnumerable<StudySessionDTO> studySessions;
+        if (choice == "Show data for all stacks")
+        {
+            studySessions = await _stackService.GetAllStudySessionData();
+        }
+        else
+        {
+            var selectedStack = optionsDictionary[choice];
+            var stackId = await _stackService.GetStackIdFromDisplayId(selectedStack.DisplayId);
+            studySessions = await _stackService.GetStudySessionsByStackId(stackId);
+        }
+
+        if (!studySessions.Any())
+        {
+            AnsiConsole.Markup("[red]No study session data found.[/]");
+            return;
+        }
+
+        var table = new Table();
+        table.AddColumn("Stack");
+        table.AddColumn("Date");
+        table.AddColumn("Correct");
+        table.AddColumn("Incorrect");
+
+        foreach (var studySession in studySessions)
+        {
+            table.AddRow(studySession.StackName, studySession.Date.ToString(), studySession.Correct.ToString(), studySession.Incorrect.ToString());
+        }
+
+        AnsiConsole.Write(table);
     }
 }

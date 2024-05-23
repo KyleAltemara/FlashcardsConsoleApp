@@ -10,4 +10,5 @@ public interface IStudySessionRepository
     Task UpdateAsync(StudySession studySession);
     Task DeleteAsync(int id);
     Task DeleteAsync(List<StudySession> studySessions);
+    Task<List<StudySession>> GetByStackIdAsync(int stackId);
 }

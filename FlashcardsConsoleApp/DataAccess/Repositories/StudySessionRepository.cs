@@ -12,9 +12,9 @@ public class StudySessionRepository : IStudySessionRepository
         _context = context;
     }
 
-    public async Task<IList<StudySession>> GetAllAsync() => await _context.StudySessions.Include(s => s.Stack).ToListAsync();
+    public async Task<IList<StudySession>> GetAllAsync() => await _context.StudySessions.ToListAsync();
 
-    public async Task<StudySession?> GetByIdAsync(int id) => await _context.StudySessions.Include(s => s.Stack).FirstOrDefaultAsync(s => s.Id == id);
+    public async Task<StudySession?> GetByIdAsync(int id) => await _context.StudySessions.FindAsync(id);
 
     public async Task AddAsync(StudySession studySession)
     {
@@ -43,4 +43,6 @@ public class StudySessionRepository : IStudySessionRepository
         _context.StudySessions.RemoveRange(studySessions);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<List<StudySession>> GetByStackIdAsync(int stackId) => await _context.StudySessions.Where(ss => ss.StackId == stackId).ToListAsync();
 }

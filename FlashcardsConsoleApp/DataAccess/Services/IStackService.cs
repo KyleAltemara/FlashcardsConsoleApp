@@ -16,4 +16,7 @@ public interface IStackService
     Task<int> GetFlashCardIdFromDisplayId(int displayId);
     Task UpdateFlashCardAsync(int flashcardId, string newQuestion, string newAnswer);
     Task DeleteFlashCardAsync(int flashcardId);
+    Task AddStudySession(DateTime now, int correctCount, int incorrectCount, string stackname, int stackId);
+    Task<IEnumerable<StudySessionDTO>> GetStudySessionsByStackId(int stackId);
+    Task<IEnumerable<StudySessionDTO>> GetAllStudySessionData();
 }

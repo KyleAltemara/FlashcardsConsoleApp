@@ -4,20 +4,24 @@ public class StudySession
 {
     public int Id { get; set; }
     public DateTime Date { get; set; }
-    public int Score { get; set; }
-    public Stack? Stack { get; set; }
+    public int Correct { get; set; }
+    public int Incorrect { get; set; }
+    public required string StackName { get; set; }
+    public int StackId { get; set; }
 
     public StudySessionDTO ToDTO() => new()
     {
         Date = Date,
-        Score = Score,
-        StackName = Stack?.Name ?? null
+        Correct = Correct,
+        Incorrect = Incorrect,
+        StackName = StackName,
     };
 }
 
 public class StudySessionDTO
 {
     public DateTime Date { get; set; }
-    public int Score { get; set; }
-    public string? StackName { get; set; }
+    public int Correct { get; set; }
+    public int Incorrect { get; set; }
+    public required string StackName { get; set; }
 }

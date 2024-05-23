@@ -18,9 +18,9 @@ public class StackRepository : IStackRepository
 
     public async Task<IList<Stack>> GetAllAsync() => await _context.Stacks.Include(s => s.FlashCards).ToListAsync();
 
-    public async Task<Stack?> GetByIdAsync(int id) => await _context.Stacks.Include(s => s.FlashCards).FirstOrDefaultAsync(s => s.Id == id);
+    public async Task<Stack?> GetByIdAsync(int id) => await _context.Stacks.FindAsync(id);
 
-    public async Task<Stack?> GetByNameAsync(string name) => await _context.Stacks.Include(s => s.FlashCards).FirstOrDefaultAsync(s => s.Name == name);
+    public async Task<Stack?> GetByNameAsync(string name) => await _context.Stacks.FirstOrDefaultAsync(s => s.Name == name);
 
     public async Task AddAsync(Stack stack)
     {
