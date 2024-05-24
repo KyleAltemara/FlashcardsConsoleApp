@@ -1,6 +1,6 @@
 # FlashCardConsoleApp
 
-<https://www.thecsharpacademy.com/project/12/flash-card-logger>
+<https://www.thecsharpacademy.com/project/14/flashcards>
 This is a console application that allows users to create and manage flashcards for study purposes. The application uses a SQLite database to store and retrieve flashcard data. Users can insert, delete, update, and view their flashcards. The application also provides a study mode to review flashcards.
 
 ## Features
@@ -51,5 +51,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Resources Used
 
-- [The C# Academy](https://www.thecsharpacademy.com/project/12/flash-card-logger)
+- [The C# Academy](https://www.thecsharpacademy.com/)
 - GitHub Copilot to generate code snippets
