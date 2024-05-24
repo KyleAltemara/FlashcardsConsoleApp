@@ -7,6 +7,9 @@ namespace FlashcardsConsoleApp;
 
 public class Application
 {
+    /// <summary>
+    /// the IStackService is used to interact with the data store
+    /// </summary>
     private readonly IStackService _stackService;
 
     public Application(IStackService stackService)
@@ -14,6 +17,9 @@ public class Application
         _stackService = stackService;
     }
 
+    /// <summary>
+    /// This is the main entry point for the application.
+    /// </summary>
     public async Task Run()
     {
         bool continueRunning = true;
@@ -25,7 +31,7 @@ public class Application
                 if (AnsiConsole.Confirm("No stacks found. Import demo stacks?", false))
                 {
                     await DemoImporter.ImportDemoStacks(_stackService);
-                    if(AnsiConsole.Confirm("Demo stacks imported. Generate demo study sessions?", false))
+                    if (AnsiConsole.Confirm("Demo stacks imported. Generate demo study sessions?", false))
                     {
                         await DemoImporter.GenerateStudySessions(_stackService);
                     }
@@ -68,6 +74,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Present the user with a list of stacks to select to study.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task SelectStackToStudy(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
@@ -87,6 +98,13 @@ public class Application
         await StudyStack(selectedStack);
     }
 
+    /// <summary>
+    /// Ask the user how many flashcards to study and then present them with flashcards to study.
+    /// When the study session is complete, the results are saved to the data store.
+    /// </summary>
+    /// <param name="selectedStack">The stack to study</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
+    /// <exception cref="InvalidOperationException"></exception>
     private async Task StudyStack(StackDTO selectedStack)
     {
 
@@ -182,6 +200,12 @@ public class Application
         Console.ReadKey();
     }
 
+    /// <summary>
+    /// Present the user with a list of stacks to select to view flashcards.
+    /// When a stack is selected, the flashcards are presented in a table.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task ViewStacksOrFlashcards(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
@@ -215,6 +239,11 @@ public class Application
         AnsiConsole.Write(table);
     }
 
+    /// <summary>
+    /// Present the user with options to add a stack or flashcard.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task AddStackOrFlashcard(IEnumerable<StackDTO> stacks)
     {
 
@@ -249,6 +278,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Presents the user with a list of stacks to select to add flashcards to.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task AddFlashcards(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
@@ -291,6 +325,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Presents the user with a list of stacks to select to update.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task UpdateStackOrFlashcard(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
@@ -346,6 +385,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Presents the user with a list of flashcards to select to update.
+    /// </summary>
+    /// <param name="stackId">The id of the stack to select flashcards to update</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task UpdateFlashcards(int stackId)
     {
         while (true)
@@ -393,6 +437,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Presents the user with a list of stacks to select to delete the entire stack or individual flashcards from.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task DeleteStackOrFlashcard(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);
@@ -441,6 +490,11 @@ public class Application
         }
     }
 
+    /// <summary>
+    /// Prsents the user with a list of flashcards to select to delete.
+    /// </summary>
+    /// <param name="stackId">The id of the stack to select flashcards to delete</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task DeleteFlashcards(int stackId)
     {
         while (true)
@@ -469,7 +523,11 @@ public class Application
         }
     }
 
-
+    /// <summary>
+    /// Presents the user with a list of stacks to select to view study session data.
+    /// </summary>
+    /// <param name="stacks">The stacks to present</param>
+    /// <returns>A Task representing the asynchronous operation.</returns>
     private async Task ViewStudySessionData(IEnumerable<StackDTO> stacks)
     {
         var optionsDictionary = stacks.ToDictionary(stack => $"{stack.DisplayId} {stack.Name} Flashcards: {stack.FlashCardCount}", stack => stack);

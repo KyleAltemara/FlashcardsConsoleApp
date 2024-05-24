@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FlashcardsConsoleApp.DataAccess.Repositories;
 
+/// <summary>
+/// Represents a study session repository.
+/// see <see cref="IStudySessionRepository"/>.
+/// </summary>
 public class StudySessionRepository : IStudySessionRepository
 {
     private readonly FlashCardDbContext _context;

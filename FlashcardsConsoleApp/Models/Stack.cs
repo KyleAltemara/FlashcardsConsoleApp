@@ -1,5 +1,8 @@
 ﻿namespace FlashcardsConsoleApp.Models;
 
+/// <summary>
+/// Represents a stack of flashcards.
+/// </summary>
 public class Stack
 {
     public int Id { get; set; }
@@ -14,6 +17,10 @@ public class Stack
         FlashCards = [];
     }
 
+    /// <summary>
+    /// Converts the <see cref="Stack"/> to a DTO (Data Transfer Object).
+    /// </summary>
+    /// <returns>The DTO representation of the <see cref="Stack"/></returns>
     public StackDTO ToDTO() => new()
     {
         DisplayId = DisplayId,
@@ -22,6 +29,9 @@ public class Stack
     };
 }
 
+/// <summary>
+/// Represents a DTO (Data Transfer Object) for a <see cref="Stack"/>.
+/// </summary>
 public class StackDTO
 {
     public required int DisplayId { get; set; }

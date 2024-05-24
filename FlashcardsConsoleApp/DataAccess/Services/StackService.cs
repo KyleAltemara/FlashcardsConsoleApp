@@ -3,6 +3,10 @@ using FlashcardsConsoleApp.Models;
 
 namespace FlashcardsConsoleApp.DataAccess.Services;
 
+/// <summary>
+/// Service class for managing stacks, flashcards, and study sessions.
+/// See <see cref="IStackService"/> for the interface."/>
+/// </summary>
 public class StackService : IStackService
 {
     private readonly IStackRepository _stackRepository;

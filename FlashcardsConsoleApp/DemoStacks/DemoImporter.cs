@@ -6,6 +6,11 @@ namespace FlashcardsConsoleApp.DemoStacks;
 
 public static class DemoImporter
 {
+    /// <summary>
+    /// Import demo stacks from DemoStacks.json
+    /// </summary>
+    /// <param name="stackService"> The stack service used to add stacks and flashcards. </param>
+    /// <returns> A task that represents the asynchronous operation. </returns>
     public static async Task ImportDemoStacks(IStackService stackService)
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\DemoStacks\DemoStacks.json");
@@ -47,6 +52,11 @@ public static class DemoImporter
         }
     }
 
+    /// <summary>
+    /// Creates 5 years of random study session data for each stack.
+    /// </summary>
+    /// <param name="stackService"> The stack service used to add and store study sessions. </param>
+    /// <returns> A task that represents the asynchronous operation. </returns>
     internal static async Task GenerateStudySessions(IStackService stackService)
     {
         var random = new Random();

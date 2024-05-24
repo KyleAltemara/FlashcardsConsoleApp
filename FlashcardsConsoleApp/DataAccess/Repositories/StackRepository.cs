@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FlashcardsConsoleApp.DataAccess.Repositories;
 
+/// <summary>
+/// Represents a stack repository.
+/// see <see cref="IStackRepository"/>.
+/// </summary>
 public class StackRepository : IStackRepository
 {
     private readonly FlashCardDbContext _context;
