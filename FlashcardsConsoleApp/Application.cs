@@ -22,10 +22,14 @@ public class Application
             var stacks = await _stackService.GetAllStacksAsync();
             if (!stacks.Any())
             {
-                bool answer = AnsiConsole.Confirm("No stacks found. Import demo stacks?", false);
-                if (answer)
+                if (AnsiConsole.Confirm("No stacks found. Import demo stacks?", false))
                 {
                     await DemoImporter.ImportDemoStacks(_stackService);
+                    if(AnsiConsole.Confirm("Demo stacks imported. Generate demo study sessions?", false))
+                    {
+                        await DemoImporter.GenerateStudySessions(_stackService);
+                    }
+
                     stacks = await _stackService.GetAllStacksAsync();
                 }
             }

@@ -6,14 +6,12 @@ public class Stack
     public int DisplayId { get; set; }
     public string Name { get; set; }
     public List<FlashCard> FlashCards { get; set; }
-    public List<StudySession> StudySessions { get; set; }
 
     public Stack(string name, int displayId)
     {
         DisplayId = displayId;
         Name = name;
         FlashCards = [];
-        StudySessions = [];
     }
 
     public StackDTO ToDTO() => new()

@@ -40,7 +40,7 @@ public class StackRepository : IStackRepository
         if (stack != null)
         {
             await _flashCardRepository.DeleteAsync(stack.FlashCards);
-            await _studySessionsRepository.DeleteAsync(stack.StudySessions);
+            await _studySessionsRepository.DeleteAsync(stack.Id);
             _context.Stacks.Remove(stack);
 
             // Renumber DisplayId in the remaining stacks
