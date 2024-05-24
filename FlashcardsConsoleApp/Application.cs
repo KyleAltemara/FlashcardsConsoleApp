@@ -40,7 +40,7 @@ public class Application
                 }
             }
 
-            var menuOptions = new Dictionary<string, Func<Task>>()
+            var menuOptions = new Dictionary<string, Func<Task>>
             {
                 { "Study a stack", () => SelectStackToStudy(stacks) },
                 { "View stacks or flashcards", () => ViewStacksOrFlashcards(stacks) },
@@ -56,7 +56,6 @@ public class Application
                     }
                 }
             };
-
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Choose an option:")
@@ -349,7 +348,7 @@ public class Application
         var selectedStack = optionsDictionary[choice];
         var stackId = await _stackService.GetStackIdFromDisplayId(selectedStack.DisplayId);
 
-        var updateOptions = new Dictionary<string, Func<Task>>()
+        var updateOptions = new Dictionary<string, Func<Task>>
         {
             { "Update Stack Name", async () =>
                 {

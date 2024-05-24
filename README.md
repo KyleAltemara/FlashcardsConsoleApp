@@ -1,6 +1,6 @@
 # FlashCardConsoleApp
-https://www.thecsharpacademy.com/project/12/flash-card-logger
 
+<https://www.thecsharpacademy.com/project/12/flash-card-logger>
 This is a console application that allows users to create and manage flashcards for study purposes. The application uses a SQLite database to store and retrieve flashcard data. Users can insert, delete, update, and view their flashcards. The application also provides a study mode to review flashcards.
 
 ## Features
@@ -36,7 +36,7 @@ To run the application, follow these steps:
 
 1. When the application starts, it will create a SQLite database if one doesn't exist and create tables to store flashcard data, stack data, and study session data.
 2. If there are no stacks in the database, the application will offer read in example stacks from a JSON file and generate example study session data.
-3. The application will display a menu with options to manage stacks and flashcards, study a stack, view study session data, or exit the application.		
+3. The application will display a menu with options to manage stacks and flashcards, study a stack, view study session data, or exit the application.  
 4. Select an option by using the arrow keys and press Enter
 5. Follow the prompts to perform the desired action.
 6. The application will continue to run until you choose the "Exit" option.
@@ -50,5 +50,6 @@ To get the '?' characters to display, right click on the console window menu bar
 This project is licensed under the [MIT License](LICENSE).
 
 ## Resources Used
+
 - [The C# Academy](https://www.thecsharpacademy.com/project/12/flash-card-logger)
 - GitHub Copilot to generate code snippets

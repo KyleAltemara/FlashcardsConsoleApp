@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace FlashcardsConsoleApp;
 
-public class Startup
+public static class Startup
 {
     public static IServiceProvider ConfigureServices()
     {

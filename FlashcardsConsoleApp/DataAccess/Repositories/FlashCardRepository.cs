@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FlashcardsConsoleApp.DataAccess.Repositories;
 
+/// <summary>
+/// Represents a flashcard repository.
+/// see <see cref="IFlashCardRepository"/>.
+/// </summary>
 public class FlashCardRepository : IFlashCardRepository
 {
     private readonly FlashCardDbContext _context;
