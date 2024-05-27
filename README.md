@@ -28,18 +28,17 @@ To run the application, follow these steps:
 
 ## Dependencies
 
-- Microsoft.Data.Sqlite: The application uses this package to interact with the SQLite database.
 - Microsoft.EntityFrameworkCore: The application uses this package to manage the database context and entity relationships.
 - Spectre.Console: The application uses this package to create a user-friendly console interface.
+- System.Configuration.ConfigurationManager: The application uses this package to read the connection string from the app.config file.
 
 ## Usage
 
-1. When the application starts, it will create a SQLite database if one doesn't exist and create tables to store flashcard data, stack data, and study session data.
-2. If there are no stacks in the database, the application will offer read in example stacks from a JSON file and generate example study session data.
-3. The application will display a menu with options to manage stacks and flashcards, study a stack, view study session data, or exit the application.  
-4. Select an option by using the arrow keys and press Enter
-5. Follow the prompts to perform the desired action.
-6. The application will continue to run until you choose the "Exit" option.
+1. When the application starts, if there are no stacks in the database, the application will offer read in example stacks from a JSON file and generate example study session data.
+2. The application will display a menu with options to manage stacks and flashcards, study a stack, view study session data, or exit the application.  
+3. Select an option by using the arrow keys and press Enter
+4. Follow the prompts to perform the desired action.
+5. The application will continue to run until you choose the "Exit" option.
 
 ## Unicode Support
 
